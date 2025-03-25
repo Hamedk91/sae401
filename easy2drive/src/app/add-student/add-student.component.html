@@ -1,0 +1,48 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="text-center">Ajouter un étudiant</h3>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="addStudent()">
+            <div class="form-group">
+              <label for="nom">Nom</label>
+              <input type="text" class="form-control" [(ngModel)]="student.nom" name="nom" required>
+            </div>
+            <div class="form-group">
+              <label for="prenom">Prénom</label>
+              <input type="text" class="form-control" [(ngModel)]="student.prenom" name="prenom" required>
+            </div>
+            <div class="form-group">
+              <label for="date_naissance">Date de naissance</label>
+              <input type="date" class="form-control" [(ngModel)]="student.date_naissance" name="date_naissance" required>
+            </div>
+            <div class="form-group">
+              <label for="rue">Rue</label>
+              <input type="text" class="form-control" [(ngModel)]="student.rue" name="rue" required>
+            </div>
+            <div class="form-group">
+              <label for="code_postal">Code postal</label>
+              <input type="number" class="form-control" [(ngModel)]="student.code_postal" name="code_postal" required>
+            </div>
+            <div class="form-group">
+              <label for="ville">Ville</label>
+              <input type="text" class="form-control" [(ngModel)]="student.ville" name="ville" required>
+            </div>
+            <div class="form-group">
+              <label for="NPEH">NPEH</label>
+              <input type="text" class="form-control" [(ngModel)]="student.NPEH" name="NPEH" required>
+            </div>
+            <div class="form-group">
+              <label for="id_auto_ecole">ID auto-école</label>
+              <input type="number" class="form-control" [(ngModel)]="student.id_auto_ecole" name="id_auto_ecole" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Ajouter</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

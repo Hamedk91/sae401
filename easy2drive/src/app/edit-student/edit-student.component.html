@@ -1,0 +1,36 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="text-center">Modifier un étudiant</h3>
+          </div>
+          <div class="card-body">
+            <form (ngSubmit)="updateStudent()">
+              <div class="form-group">
+                <label for="nom">Nom</label>
+                <input type="text" class="form-control" [(ngModel)]="student.nom" name="nom" required>
+              </div>
+              <div class="form-group">
+                <label for="prenom">Prénom</label>
+                <input type="text" class="form-control" [(ngModel)]="student.prenom" name="prenom" required>
+              </div>
+              <div class="form-group">
+                <label for="date_naissance">Date de naissance</label>
+                <input type="date" class="form-control" [(ngModel)]="student.date_naissance" name="date_naissance" required>
+              </div>
+              <div class="form-group">
+                <label for="ville">Ville</label>
+                <input type="text" class="form-control" [(ngModel)]="student.ville" name="ville" required>
+              </div>
+              <div class="form-group">
+                <label for="NPEH">NPEH</label>
+                <input type="text" class="form-control" [(ngModel)]="student.NPEH" name="NPEH" required>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Mettre à jour</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

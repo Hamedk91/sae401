@@ -1,0 +1,53 @@
+<div class="wrapper">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>EasyToDrive</h2>
+    <ul>
+      <li><a routerLink="/dashboard"><i class="fas fa-tachometer-alt"></i> Tableau de bord</a></li>
+      <li><a routerLink="/students"><i class="fas fa-user-graduate"></i> Élèves</a></li>
+      <li><a routerLink="/tests"><i class="fas fa-file-alt"></i> Tests</a></li>
+      <li><a routerLink="/auto-ecoles"><i class="fas fa-file-alt"></i> auto-ecole</a></li>
+    </ul>
+  </div>
+  
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <h2 class="title">Liste des étudiants</h2>
+    <button class="add-btn" (click)="addStudent()">+ Ajouter un étudiant</button>
+
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Date de naissance</th>
+          <th>Rue</th>
+          <th>code postal</th>
+          <th>ville</th>
+          <th>Date d'inscription</th>
+          <th>NEPH</th>
+          <th>id auto-école</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students">
+          <td>{{ student.nom }}</td>
+          <td>{{ student.prenom }}</td>
+          <td>{{ student.date_naissance }}</td>
+          <td>{{ student.rue }}</td>
+          <td>{{ student.code_postal }}</td>
+          <td>{{ student.ville }}</td>
+          <td>{{ student.date_inscription }}</td>
+          <td>{{ student.NEPH }}</td> 
+          <td>{{ student.id_auto_ecole }}</td>
+          <td>
+            <button class="btn-delete" (click)="deleteStudent(student.id_eleve)">Supprimer</button>
+            <button class="btn-edit" (click)="editStudent(student.id_eleve)">Modifier</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

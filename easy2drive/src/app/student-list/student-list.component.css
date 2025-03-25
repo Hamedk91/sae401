@@ -1,0 +1,88 @@
+/* Global Wrapper */
+.wrapper {
+    display: flex;
+    height: 100vh;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 250px;
+    background: #4169E1;
+    padding: 20px;
+    color: white;
+  }
+  
+  .sidebar .logo {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .sidebar ul {
+    
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    color: #ddd;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  /* Main Content */
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .add-btn {
+    background: none;
+    border: none;
+    color: #000;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  /* Table */
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .styled-table th {
+    background: #4169E1;
+    color: white;
+    padding: 10px;
+  }
+  
+  .styled-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Buttons */
+  .btn-delete {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  .btn-edit {
+    background: gray;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  

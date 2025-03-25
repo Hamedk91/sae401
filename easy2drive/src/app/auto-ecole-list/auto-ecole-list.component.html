@@ -1,0 +1,58 @@
+<div class="sidebar">
+  <h2>EasyToDrive</h2>
+  <ul>
+    <li><a routerLink="/dashboard"><i class="fas fa-tachometer-alt"></i> Tableau de bord</a></li>
+    <li><a routerLink="/students"><i class="fas fa-user-graduate"></i> Élèves</a></li>
+    <li><a routerLink="/tests"><i class="fas fa-file-alt"></i> Tests</a></li>
+    <li><a routerLink="/auto-ecoles"><i class="fas fa-file-alt"></i> auto-ecole</a></li>
+  </ul>
+</div>
+
+
+<div class="container">
+
+
+    <h2>Liste des Auto-Écoles</h2>
+
+    
+    
+    <button class="btn-add" (click)="addAutoEcole()">
+      + Ajouter une Auto-École
+    </button>
+  
+    <div *ngIf="isLoading" class="loading">Chargement en cours...</div>
+    
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  
+    <table *ngIf="!isLoading && autoEcoles.length > 0">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Adresse</th>
+          <th>Téléphone</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let autoEcole of autoEcoles">
+          <td>{{ autoEcole.nom }}</td>
+          <td>{{ autoEcole.adresse }}</td>
+          <td>{{ autoEcole.telephone }}</td>
+          <td>{{ autoEcole.email }}</td>
+          <td class="actions">
+            <button class="btn-edit" (click)="editAutoEcole(autoEcole.id_auto_ecole)">
+              Modifier
+            </button>
+            <button class="btn-delete" (click)="deleteAutoEcole(autoEcole.id_auto_ecole)">
+              Supprimer
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div *ngIf="!isLoading && autoEcoles.length === 0" class="no-data">
+      Aucune auto-école disponible
+    </div>
+  </div>

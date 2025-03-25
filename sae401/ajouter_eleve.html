@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un Élève</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+    <script>
+        function ajouterEleve(event) {
+            event.preventDefault(); // Empêche le rechargement de la page
+
+            let formData = {
+                nom: document.getElementById('nom').value,
+                prenom: document.getElementById('prenom').value,
+                date_naissance: document.getElementById('date_naissance').value,
+                rue: document.getElementById('rue').value,
+                code_postal: document.getElementById('code_postal').value,
+                ville: document.getElementById('ville').value,
+                date_inscription: document.getElementById('date_inscription').value,
+                NPEH: document.getElementById('NPEH').value,
+                id_auto_ecole: document.getElementById('id_auto_ecole').value
+            };
+
+            fetch('api.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                if (data.message === "Élève ajouté avec succès.") {
+                    window.location.href = "admin_api.php"; // Redirige après ajout
+                }
+            })
+            .catch(error => console.error('Erreur:', error));
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Ajouter un Élève</h2>
+    <form onsubmit="ajouterEleve(event)">
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" required>
+
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" required>
+
+        <label for="date_naissance">Date de naissance:</label>
+        <input type="date" id="date_naissance" required>
+
+        <label for="rue">Rue:</label>
+        <input type="text" id="rue" required>
+
+        <label for="code_postal">Code Postal:</label>
+        <input type="text" id="code_postal" required>
+
+        <label for="ville">Ville:</label>
+        <input type="text" id="ville" required>
+
+        <label for="date_inscription">Date d'inscription:</label>
+        <input type="date" id="date_inscription" required>
+
+        <label for="NPEH">NPEH:</label>
+        <input type="text" id="NPEH" required>
+
+        <label for="id_auto_ecole">ID Auto-École:</label>
+        <input type="number" id="id_auto_ecole" required>
+
+        <button type="submit">Ajouter</button>
+    </form>
+
+</body>
+</html>
